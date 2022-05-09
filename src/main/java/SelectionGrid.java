@@ -68,7 +68,7 @@ public class SelectionGrid extends Rectangle {
             if (gridY > GRID_HEIGHT || gridX + segments > GRID_WIDTH) {
                 return false;
             }
-            for (int x = 0; x  < segments; x++) {
+            for (int x = 0; x < segments; x++) {
                 if (markers[gridX + x][gridY].isShip()) {
                     return false;
                 }
@@ -100,7 +100,7 @@ public class SelectionGrid extends Rectangle {
             }
         } else {
             for (int y = 0; y < ship.getSegments(); y++) {
-                markers[gridX][gridY].setAsShip(ships.get(ships.size() - 1));
+                markers[gridX][gridY + y].setAsShip(ships.get(ships.size() - 1));
             }
         }
     }
