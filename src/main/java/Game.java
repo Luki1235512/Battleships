@@ -6,9 +6,9 @@ public class Game implements KeyListener {
     public static void main(String[] args) {
 
         Game game = new Game();
-
-
     }
+
+    private GamePanel gamePanel;
 
     public Game() {
         String message = "glhf";
@@ -17,9 +17,9 @@ public class Game implements KeyListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
 
-//        gamePanel
+        gamePanel = new GamePanel();
 
-//        frame.getContentPane().add()
+        frame.getContentPane().add(gamePanel);
         frame.addKeyListener(this);
         frame.pack();
         frame.setVisible(true);
@@ -32,7 +32,7 @@ public class Game implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+//        gamePanel.handleInput(e.getKeyCode());
     }
 
     @Override
