@@ -147,4 +147,37 @@ public class SelectionGrid extends Rectangle {
             }
         }
     }
+
+    public Position getPositionInGrid(int mouseX, int mouseY) {
+        if (!isPositionInside(new Position(mouseX, mouseY))) {
+            return new Position(-1, 1);
+        }
+        return new Position((mouseX - position.x) / CELL_SIZE, (mouseY - position.y) / CELL_SIZE);
+    }
+
+    public boolean isPositionMarked(Position posToTest) {
+        return markers[posToTest.x][posToTest.y].isMarked();
+    }
+
+    public boolean markPosition(Position posToMark) {
+        markers[posToMark.x][posToMark.y].mark();
+
+        allShipsDestroyed = true;
+        for (Ship ship: ships) {
+            if (!ship.isDestroyed()) {
+                allShipsDestroyed = false;
+                break;
+            }
+        }
+        return markers[posToMark.x][posToMark.y].isShip();
+    }
+
+    public Marker getMarkerAtPosition(Position posToSelect) {
+        return markers[posToSelect.x][posToSelect.y];
+    }
+
+    public boolean areAllShipsDestroyed() {
+        return allShipsDestroyed;
+    }
+
 }

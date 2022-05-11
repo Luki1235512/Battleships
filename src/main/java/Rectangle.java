@@ -16,6 +16,11 @@ public class Rectangle {
         this(new Position(x, y), width, height);
     }
 
+    public boolean isPositionInside(Position targetPosition) {
+        return targetPosition.x >= position.x && targetPosition.y >= position.y
+                && targetPosition.x < position.x + width && targetPosition.y < position.y + height;
+    }
+
     public Position getPosition() {
         return position;
     }

@@ -11,8 +11,6 @@ public class Game implements KeyListener {
     private GamePanel gamePanel;
 
     public Game() {
-        String message = "glhf";
-
         JFrame frame = new JFrame("Battleship");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
@@ -32,7 +30,7 @@ public class Game implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-//        gamePanel.handleInput(e.getKeyCode());
+        gamePanel.handleInput(e.getKeyCode());
     }
 
     @Override

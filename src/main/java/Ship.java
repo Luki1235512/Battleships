@@ -68,5 +68,13 @@ public class Ship {
         return segments;
     }
 
+    public void destroySection() {
+        destroyedSections++;
+    }
+
+    public boolean isDestroyed() {
+        return destroyedSections >= segments;
+    }
+
 
 }

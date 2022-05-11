@@ -8,6 +8,10 @@ public class StatusPanel extends Rectangle {
 
     private final Font font = new Font("Arial", Font.BOLD, 20);
 
+    private final String gameOverWinLine = "You won! Well done!";
+
+    private final String gameOverBottomLine = "Press R to restart.";
+
     public StatusPanel(Position position, int width, int height) {
         super(position, width, height);
     }
@@ -16,9 +20,18 @@ public class StatusPanel extends Rectangle {
         super(x, y, width, height);
     }
 
+    public void setTopLine(String message) {
+        topLine = message;
+    }
+
+    public void showGameOver(boolean playerWon) {
+        topLine = gameOverWinLine;
+        bottomLine = gameOverBottomLine;
+    }
+
     public void reset() {
-        topLine = "dd";
-        bottomLine = "dd2";
+        topLine = "";
+        bottomLine = "";
     }
 
     public void paint (Graphics g) {

@@ -26,8 +26,19 @@ public class Marker extends Rectangle {
         return shipAtMarker != null;
     }
 
+    public boolean isMarked() {
+        return showMarker;
+    }
+
     public void setAsShip(Ship ship) {
         this.shipAtMarker = ship;
+    }
+
+    public void mark() {
+        if (!showMarker && isShip()) {
+            shipAtMarker.destroySection();
+        }
+        showMarker = true;
     }
 
     public void paint(Graphics g) {
@@ -37,6 +48,10 @@ public class Marker extends Rectangle {
 
         g.setColor(isShip() ? HIT_COLOUR : MISS_COLOUR);
         g.fillRect(position.x + PADDING + 1, position.y + PADDING + 1, width - PADDING * 2, height - PADDING * 2);
+    }
+
+    public Ship getAssociatedShip() {
+        return shipAtMarker;
     }
 
 }

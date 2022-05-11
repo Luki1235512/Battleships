@@ -42,6 +42,11 @@ public class Position {
         return x == position.x && y == position.y;
 
     }
+
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ')';
+    }
 }
 
 
